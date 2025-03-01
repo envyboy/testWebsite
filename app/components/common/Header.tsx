@@ -162,11 +162,11 @@ export const Header = () => {
             divider={<Box borderColor={borderColor} />}
           >
             <Link href="/about" passHref style={{ width: '100%' }}>
-              <Button variant="ghost" width="full">회사소개</Button>
+              <Button variant="ghost" width="full" onClick={onToggle}>회사소개</Button>
             </Link>
             {SERVICE_MENU.map((item) => (
               <Link key={item.href} href={item.href} passHref style={{ width: '100%' }}>
-                <Button variant="ghost" width="full">
+                <Button variant="ghost" width="full" onClick={onToggle}>
                   <HStack justify="space-between" width="full">
                     <Text>{item.title}</Text>
                     {item.badge && (
@@ -184,6 +184,7 @@ export const Header = () => {
               leftIcon={<PhoneIcon />}
               as={Link}
               href="/contact"
+              onClick={onToggle}
             >
               문의하기
             </Button>
