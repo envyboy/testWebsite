@@ -131,35 +131,48 @@ export default function Home() {
       <Box
         bgGradient={bgGradient}
         color="white"
-        py={{ base: 20, md: 28 }}
-        px={4}
+        py={{ base: 16, md: 28 }}
+        px={{ base: 4, md: 8 }}
       >
         <Container maxW="container.xl">
-          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
-            <VStack align="flex-start" spacing={6}>
+          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ base: 8, md: 10 }}>
+            <VStack align={{ base: "center", md: "flex-start" }} spacing={6}>
               <Badge
                 colorScheme="yellow"
-                fontSize="lg"
+                fontSize={{ base: "md", md: "lg" }}
                 px={4}
                 py={2}
                 borderRadius="full"
               >
                 아파트 CCTV 전문기업
               </Badge>
-              <Heading size="2xl" lineHeight="shorter">
+              <Heading 
+                size={{ base: "xl", md: "2xl" }} 
+                lineHeight="shorter"
+                textAlign={{ base: "center", md: "left" }}
+              >
                 아파트 단지를 위한<br />
                 스마트 통합 보안 솔루션
               </Heading>
-              <Text fontSize="xl">
-                15년 아파트 CCTV 설치 경험과 24시간 긴급출동 AS로<br />
+              <Text 
+                fontSize={{ base: "lg", md: "xl" }}
+                textAlign={{ base: "center", md: "left" }}
+              >
+                15년 아파트 CCTV 설치 경험과<br />
+                24시간 긴급출동 AS로<br />
                 입주민의 안전한 생활을 책임집니다
               </Text>
-              <ButtonGroup spacing={4}>
+              <Stack
+                direction={{ base: "column", sm: "row" }}
+                spacing={4}
+                w={{ base: "full", md: "auto" }}
+              >
                 <Button
                   size="lg"
                   colorScheme="white"
                   variant="solid"
                   leftIcon={<PhoneIcon />}
+                  w={{ base: "full", sm: "auto" }}
                 >
                   아파트 무료 견적
                 </Button>
@@ -168,11 +181,17 @@ export default function Home() {
                   colorScheme="whiteAlpha"
                   variant="outline"
                   leftIcon={<FaBuilding />}
+                  w={{ base: "full", sm: "auto" }}
                 >
                   아파트 시공사례
                 </Button>
-              </ButtonGroup>
-              <HStack spacing={4} pt={4}>
+              </Stack>
+              <Stack
+                direction={{ base: "column", sm: "row" }}
+                spacing={4}
+                pt={4}
+                w={{ base: "full", md: "auto" }}
+              >
                 <Tag size="lg" variant="subtle" colorScheme="whiteAlpha">
                   <TagLeftIcon as={FaCheckCircle} />
                   <TagLabel>실시간 원격 관제</TagLabel>
@@ -185,7 +204,7 @@ export default function Home() {
                   <TagLeftIcon as={FaTools} />
                   <TagLabel>무상 AS 2년</TagLabel>
                 </Tag>
-              </HStack>
+              </Stack>
             </VStack>
             <Box display={{ base: 'none', md: 'block' }}>
               <Image
@@ -291,14 +310,29 @@ export default function Home() {
       </Container>
 
       {/* 문의하기 버튼 */}
-      <Box position="fixed" right={4} bottom={4} zIndex={20}>
-        <VStack spacing={4}>
+      <Box 
+        position="fixed" 
+        right={{ base: 0, md: 4 }} 
+        bottom={{ base: 0, md: 4 }} 
+        left={{ base: 0, md: "auto" }}
+        p={{ base: 4, md: 0 }}
+        bg={{ base: "white", md: "transparent" }}
+        borderTopWidth={{ base: "1px", md: 0 }}
+        borderColor="gray.200"
+        zIndex={20}
+      >
+        <Stack 
+          direction={{ base: "row", md: "column" }} 
+          spacing={4}
+          width="full"
+        >
           <Button
             colorScheme="teal"
             size="lg"
             leftIcon={<EmailIcon />}
             onClick={() => window.location.href = 'mailto:seoncnc@gmail.com'}
             shadow="lg"
+            flex={{ base: 1, md: "auto" }}
           >
             이메일 문의
           </Button>
@@ -308,10 +342,11 @@ export default function Home() {
             leftIcon={<PhoneIcon />}
             onClick={() => window.location.href = 'tel:010-6836-8048'}
             shadow="lg"
+            flex={{ base: 1, md: "auto" }}
           >
             전화 상담
           </Button>
-        </VStack>
+        </Stack>
       </Box>
     </Box>
   );
