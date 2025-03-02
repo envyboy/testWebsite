@@ -29,6 +29,7 @@ import {
 } from '@chakra-ui/react';
 import { PhoneIcon, EmailIcon, CheckCircleIcon, StarIcon } from '@chakra-ui/icons';
 import { FaCamera, FaShieldAlt, FaUserShield, FaClock, FaBuilding, FaCheckCircle, FaTools, FaMobile } from 'react-icons/fa';
+import Link from 'next/link';
 
 const SAMPLE_PRODUCTS = [
   {
@@ -45,23 +46,23 @@ const SAMPLE_PRODUCTS = [
 
 const SAMPLE_INSTALLATIONS = [
   {
-    title: "오피스 CCTV 설치",
-    image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=800",
+    title: "CCTV 긴급 출동 AS",
+    image: "https://images.unsplash.com/photo-1580983218628-b231f6b4fa5f",
     location: "서울 강남구"
   },
   {
-    title: "주차장 감시 시스템",
-    image: "https://images.unsplash.com/photo-1590856029826-c7a73142bbf1?w=800",
+    title: "CCTV 정기 점검",
+    image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9",
     location: "인천 송도"
   },
   {
-    title: "상가 보안 시스템",
-    image: "https://images.unsplash.com/photo-1557597883-aac6c4f06b09?w=800",
+    title: "카메라 각도 조정",
+    image: "https://images.unsplash.com/photo-1557597883-aac6c4f06b09",
     location: "부산 해운대"
   },
   {
-    title: "아파트 방범 카메라",
-    image: "https://images.unsplash.com/photo-1557597883-aac6c4f06b09?w=800",
+    title: "녹화기 장애 처리",
+    image: "https://images.unsplash.com/photo-1557597516-da75c0c6d3fb",
     location: "대구 수성구"
   }
 ];
@@ -139,28 +140,28 @@ export default function Home() {
             <VStack align={{ base: "center", md: "flex-start" }} spacing={6}>
               <Badge
                 colorScheme="yellow"
-                fontSize={{ base: "md", md: "lg" }}
-                px={4}
-                py={2}
+                fontSize={{ base: "lg", md: "xl" }}
+                px={6}
+                py={3}
                 borderRadius="full"
               >
-                아파트 CCTV 전문기업
+                아파트·오피스텔 CCTV AS 전문기업
               </Badge>
               <Heading 
                 size={{ base: "xl", md: "2xl" }} 
                 lineHeight="shorter"
                 textAlign={{ base: "center", md: "left" }}
               >
-                아파트 단지를 위한<br />
-                스마트 통합 보안 솔루션
+                24시간 365일<br />
+                CCTV 긴급출동 AS
               </Heading>
               <Text 
                 fontSize={{ base: "lg", md: "xl" }}
                 textAlign={{ base: "center", md: "left" }}
               >
-                15년 아파트 CCTV 설치 경험과<br />
-                24시간 긴급출동 AS로<br />
-                입주민의 안전한 생활을 책임집니다
+                15년 CCTV AS 전문 기술력으로<br />
+                신속하고 정확한 장애 처리,<br />
+                전문 엔지니어가 책임집니다
               </Text>
               <Stack
                 direction={{ base: "column", sm: "row" }}
@@ -173,17 +174,20 @@ export default function Home() {
                   variant="solid"
                   leftIcon={<PhoneIcon />}
                   w={{ base: "full", sm: "auto" }}
+                  onClick={() => window.location.href = 'tel:1688-8048'}
                 >
-                  아파트 무료 견적
+                  긴급 출동 요청
                 </Button>
                 <Button
                   size="lg"
                   colorScheme="whiteAlpha"
                   variant="outline"
-                  leftIcon={<FaBuilding />}
+                  leftIcon={<FaTools />}
                   w={{ base: "full", sm: "auto" }}
+                  as={Link}
+                  href="/services/as"
                 >
-                  아파트 시공사례
+                  AS 서비스 안내
                 </Button>
               </Stack>
               <Stack
@@ -193,28 +197,95 @@ export default function Home() {
                 w={{ base: "full", md: "auto" }}
               >
                 <Tag size="lg" variant="subtle" colorScheme="whiteAlpha">
-                  <TagLeftIcon as={FaCheckCircle} />
-                  <TagLabel>실시간 원격 관제</TagLabel>
-                </Tag>
-                <Tag size="lg" variant="subtle" colorScheme="whiteAlpha">
                   <TagLeftIcon as={FaClock} />
                   <TagLabel>24시간 긴급출동</TagLabel>
                 </Tag>
                 <Tag size="lg" variant="subtle" colorScheme="whiteAlpha">
                   <TagLeftIcon as={FaTools} />
+                  <TagLabel>당일 AS 처리</TagLabel>
+                </Tag>
+                <Tag size="lg" variant="subtle" colorScheme="whiteAlpha">
+                  <TagLeftIcon as={FaCheckCircle} />
                   <TagLabel>무상 AS 2년</TagLabel>
                 </Tag>
               </Stack>
             </VStack>
             <Box display={{ base: 'none', md: 'block' }}>
               <Image
-                src="/images/apartment-cctv.jpg"
-                alt="아파트 CCTV 설치"
+                src="https://images.pexels.com/photos/430208/pexels-photo-430208.jpeg"
+                alt="CCTV AS 서비스"
                 borderRadius="xl"
                 shadow="2xl"
               />
             </Box>
           </SimpleGrid>
+        </Container>
+      </Box>
+
+      {/* AS 서비스 특징 */}
+      <Container maxW="container.xl" py={16}>
+        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
+          <Card>
+            <CardBody>
+              <VStack spacing={4} align="flex-start">
+                <Icon as={FaClock} boxSize={8} color="teal.500" />
+                <Heading size="md">24시간 긴급출동</Heading>
+                <Text>
+                  365일 24시간 대기 중인 전문 엔지니어가 신속하게 출동하여 문제를 해결해드립니다.
+                </Text>
+              </VStack>
+            </CardBody>
+          </Card>
+          <Card>
+            <CardBody>
+              <VStack spacing={4} align="flex-start">
+                <Icon as={FaTools} boxSize={8} color="teal.500" />
+                <Heading size="md">전문 기술력</Heading>
+                <Text>
+                  15년 경력의 CCTV 전문가들이 정확한 진단과 수리로 완벽한 AS를 보장합니다.
+                </Text>
+              </VStack>
+            </CardBody>
+          </Card>
+          <Card>
+            <CardBody>
+              <VStack spacing={4} align="flex-start">
+                <Icon as={FaShieldAlt} boxSize={8} color="teal.500" />
+                <Heading size="md">품질 보증</Heading>
+                <Text>
+                  모든 수리에 대해 6개월 품질보증을 제공하며, 신규 설치 시 2년 무상 AS를 지원합니다.
+                </Text>
+              </VStack>
+            </CardBody>
+          </Card>
+        </SimpleGrid>
+      </Container>
+
+      {/* 통계 섹션 */}
+      <Box bg={useColorModeValue('gray.50', 'gray.800')} py={16}>
+        <Container maxW="container.xl">
+          <StatGroup>
+            <Stat>
+              <StatLabel>연간 AS 처리</StatLabel>
+              <StatNumber>5,000+</StatNumber>
+              <Text>건</Text>
+            </Stat>
+            <Stat>
+              <StatLabel>AS 만족도</StatLabel>
+              <StatNumber>98%</StatNumber>
+              <Text>고객 만족</Text>
+            </Stat>
+            <Stat>
+              <StatLabel>평균 출동시간</StatLabel>
+              <StatNumber>30분</StatNumber>
+              <Text>이내</Text>
+            </Stat>
+            <Stat>
+              <StatLabel>전문 엔지니어</StatLabel>
+              <StatNumber>50+</StatNumber>
+              <Text>명</Text>
+            </Stat>
+          </StatGroup>
         </Container>
       </Box>
 
@@ -240,23 +311,6 @@ export default function Home() {
             ))}
           </SimpleGrid>
         </VStack>
-      </Container>
-
-      {/* 통계 섹션 */}
-      <Container maxW="container.xl" py={16}>
-        <StatGroup>
-          {STATS.map((stat, index) => (
-            <Stat key={index} textAlign="center">
-              <StatLabel fontSize="lg">{stat.label}</StatLabel>
-              <StatNumber fontSize="4xl" color="teal.500">
-                {stat.number}
-                <Text as="span" fontSize="xl" color="gray.500">
-                  {stat.unit}
-                </Text>
-              </StatNumber>
-            </Stat>
-          ))}
-        </StatGroup>
       </Container>
 
       {/* 특징 섹션 */}
@@ -308,46 +362,6 @@ export default function Home() {
           </SimpleGrid>
         </VStack>
       </Container>
-
-      {/* 문의하기 버튼 */}
-      <Box 
-        position="fixed" 
-        right={{ base: 0, md: 4 }} 
-        bottom={{ base: 0, md: 4 }} 
-        left={{ base: 0, md: "auto" }}
-        p={{ base: 4, md: 0 }}
-        bg={{ base: "white", md: "transparent" }}
-        borderTopWidth={{ base: "1px", md: 0 }}
-        borderColor="gray.200"
-        zIndex={20}
-      >
-        <Stack 
-          direction={{ base: "row", md: "column" }} 
-          spacing={4}
-          width="full"
-        >
-          <Button
-            colorScheme="teal"
-            size="lg"
-            leftIcon={<EmailIcon />}
-            onClick={() => window.location.href = 'mailto:seoncnc@gmail.com'}
-            shadow="lg"
-            flex={{ base: 1, md: "auto" }}
-          >
-            이메일 문의
-          </Button>
-          <Button
-            colorScheme="teal"
-            size="lg"
-            leftIcon={<PhoneIcon />}
-            onClick={() => window.location.href = 'tel:010-6836-8048'}
-            shadow="lg"
-            flex={{ base: 1, md: "auto" }}
-          >
-            전화 상담
-          </Button>
-        </Stack>
-      </Box>
     </Box>
   );
 }

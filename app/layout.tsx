@@ -3,6 +3,9 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ChakraProvider } from '@chakra-ui/react';
 import { Header } from "./components/common/Header";
+import { KakaoButton } from './components/common/KakaoButton';
+import { Footer } from './components/common/Footer';
+import { FloatingButtons } from './components/common/FloatingButtons';
 
 const inter = Inter({
   subsets: ["latin"],
@@ -22,6 +25,8 @@ const RootLayoutClient = ({ children }: { children: React.ReactNode }) => {
         <ChakraProvider>
           <Header />
           <main className="pt-16">{children}</main>
+          <Footer />
+          <FloatingButtons />
         </ChakraProvider>
       </body>
     </html>

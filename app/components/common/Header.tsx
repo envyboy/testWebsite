@@ -148,7 +148,7 @@ export const Header = () => {
               colorScheme="teal"
               leftIcon={<PhoneIcon />}
             >
-              문의하기
+              접수하기
             </Button>
           </Stack>
         </Flex>
@@ -186,7 +186,7 @@ export const Header = () => {
               href="/contact"
               onClick={onToggle}
             >
-              문의하기
+              접수하기
             </Button>
           </VStack>
         </Collapse>

@@ -27,6 +27,7 @@ import {
 import { PhoneIcon, EmailIcon, TimeIcon, CheckIcon } from '@chakra-ui/icons';
 import { FaMapMarkerAlt, FaUser } from 'react-icons/fa';
 import { useState } from 'react';
+import { RiKakaoTalkFill } from 'react-icons/ri';
 
 const CONTACT_INFO = [
   {
@@ -35,6 +36,13 @@ const CONTACT_INFO = [
     content: "1688-8048",
     subContent: "010-6836-8048",
     action: "tel:1688-8048"
+  },
+  {
+    icon: RiKakaoTalkFill,
+    title: "카카오톡 상담",
+    content: "카카오톡 채널",
+    subContent: "실시간 상담",
+    action: "https://pf.kakao.com/_xjAxbMG" // 실제 카카오톡 채널 URL로 변경 필요
   },
   {
     icon: EmailIcon,
@@ -206,7 +214,7 @@ export default function Contact() {
                     isLoading={isSubmitting}
                     loadingText="접수중..."
                   >
-                    문의하기
+                    접수하기
                   </Button>
                 </VStack>
               </form>
@@ -223,15 +231,28 @@ export default function Contact() {
                 transition="all 0.2s"
                 cursor={info.action ? 'pointer' : 'default'}
                 onClick={() => info.action && window.open(info.action, '_blank')}
+                bg={info.icon === RiKakaoTalkFill ? '#FEE500' : 'white'}
               >
                 <CardBody>
                   <VStack spacing={3} align="flex-start">
-                    <Icon as={info.icon} boxSize={6} color="teal.500" />
+                    <Icon 
+                      as={info.icon} 
+                      boxSize={6} 
+                      color={info.icon === RiKakaoTalkFill ? 'black' : 'teal.500'} 
+                    />
                     <Box>
                       <Heading size="md" mb={2}>{info.title}</Heading>
-                      <Text fontSize="lg" fontWeight="medium">{info.content}</Text>
+                      <Text 
+                        fontSize="lg" 
+                        fontWeight="medium"
+                        color={info.icon === RiKakaoTalkFill ? 'black' : 'inherit'}
+                      >
+                        {info.content}
+                      </Text>
                       {info.subContent && (
-                        <Text color="gray.500">{info.subContent}</Text>
+                        <Text color={info.icon === RiKakaoTalkFill ? 'blackAlpha.700' : 'gray.500'}>
+                          {info.subContent}
+                        </Text>
                       )}
                     </Box>
                   </VStack>
