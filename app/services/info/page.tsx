@@ -19,9 +19,10 @@ import {
   ListItem,
   ListIcon,
   Divider,
+  useColorModeValue,
 } from '@chakra-ui/react';
 import { CheckCircleIcon } from '@chakra-ui/icons';
-import { FaCamera, FaHdd, FaWifi, FaShieldAlt } from 'react-icons/fa';
+import { FaCamera, FaHdd, FaWifi, FaShieldAlt, FaInfoCircle } from 'react-icons/fa';
 
 const CCTV_TYPES = [
   {
@@ -86,19 +87,35 @@ const MAINTENANCE_TIPS = [
 ];
 
 export default function CCTVInfo() {
+  const bgGradient = useColorModeValue(
+    'linear(to-r, teal.500, blue.500)',
+    'linear(to-r, teal.200, blue.200)'
+  );
+
   return (
-    <Box py={10}>
+    <Box>
+      {/* 히어로 섹션 */}
+      <Box
+        bgGradient={bgGradient}
+        color="white"
+        py={20}
+        mb={12}
+      >
+        <Container maxW="container.xl">
+          <VStack spacing={6} align="center" textAlign="center">
+            <Icon as={FaInfoCircle} boxSize={16} />
+            <Heading size="2xl">CCTV 정보</Heading>
+            <Text fontSize="xl" maxW="container.md">
+              CCTV 시스템의 모든 것을<br />
+              알기 쉽게 설명해드립니다
+            </Text>
+          </VStack>
+        </Container>
+      </Box>
+
+      {/* 기존 콘텐츠 */}
       <Container maxW="container.xl">
         <VStack spacing={12} align="stretch">
-          {/* 헤더 섹션 */}
-          <Box textAlign="center">
-            <Heading size="2xl" mb={4}>CCTV 정보</Heading>
-            <Text fontSize="xl" color="gray.600">
-              CCTV 시스템의 모든 것을 알려드립니다
-            </Text>
-          </Box>
-
-          {/* CCTV 종류 */}
           <Box>
             <Heading size="lg" mb={6}>CCTV 종류</Heading>
             <SimpleGrid columns={[1, 1, 3]} spacing={8}>

@@ -123,7 +123,7 @@ export default function Contact() {
       <Box bg="teal.500" color="white" py={16} mb={12}>
         <Container maxW="container.xl">
           <VStack spacing={4} textAlign="center">
-            <Heading size="2xl">문의하기</Heading>
+            <Heading size="2xl">접수하기</Heading>
             <Text fontSize="xl">
               궁금하신 사항이나 견적 문의를 남겨주시면<br />
               신속하게 답변 드리겠습니다.

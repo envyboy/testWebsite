@@ -61,7 +61,7 @@ export const Logo = () => {
               color={textColor}
               letterSpacing="tight"
             >
-              CCTV 보안관
+              우리동네 CCTV
             </Text>
             <Badge 
               colorScheme="yellow" 

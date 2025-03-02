@@ -223,7 +223,7 @@ export default function Home() {
                 </Tag>
                 <Tag size="lg" variant="subtle" colorScheme="whiteAlpha">
                   <TagLeftIcon as={FaCheckCircle} />
-                  <TagLabel>무상 AS 2년</TagLabel>
+                  <TagLabel>무상 AS 1년</TagLabel>
                 </Tag>
               </Stack>
             </VStack>
