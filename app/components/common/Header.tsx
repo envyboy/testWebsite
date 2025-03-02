@@ -26,7 +26,7 @@ import { FaShieldAlt, FaBuilding } from 'react-icons/fa';
 
 const SERVICE_MENU = [
   { title: 'CCTV AS', href: '/services/as', badge: '24시간' },
-  { title: 'CCTV 가격', href: '/services/pricing', badge: '특가' },
+//   { title: 'CCTV 가격', href: '/services/pricing', badge: '특가' },
   { title: 'CCTV 설치사례', href: '/services/cases' },
   { title: 'CCTV 정보', href: '/services/info' },
 ];
