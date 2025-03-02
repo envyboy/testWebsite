@@ -131,12 +131,27 @@ export default function Home() {
       {/* Hero 섹션 */}
       <Box
         bgGradient={bgGradient}
+        bgImage="url('https://images.pexels.com/photos/430208/pexels-photo-430208.jpeg')"
+        bgBlendMode="overlay"
+        bgSize="cover"
+        bgPosition="center"
         color="white"
         py={{ base: 16, md: 28 }}
         px={{ base: 4, md: 8 }}
+        position="relative"
+        _before={{
+          content: '""',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          bg: 'blackAlpha.600',
+          zIndex: 0,
+        }}
       >
-        <Container maxW="container.xl">
-          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ base: 8, md: 10 }}>
+        <Container maxW="container.xl" position="relative" zIndex={1}>
+          <SimpleGrid columns={{ base: 1, md: 1 }} spacing={{ base: 8, md: 10 }}>
             <VStack align={{ base: "center", md: "flex-start" }} spacing={6}>
               <Badge
                 colorScheme="yellow"
@@ -166,7 +181,8 @@ export default function Home() {
               <Stack
                 direction={{ base: "column", sm: "row" }}
                 spacing={4}
-                w={{ base: "full", md: "auto" }}
+                w={{ base: "full", sm: "auto" }}
+                justify={{ base: "center", md: "flex-start" }}
               >
                 <Button
                   size="lg"
@@ -194,7 +210,8 @@ export default function Home() {
                 direction={{ base: "column", sm: "row" }}
                 spacing={4}
                 pt={4}
-                w={{ base: "full", md: "auto" }}
+                w={{ base: "full", sm: "auto" }}
+                justify={{ base: "center", md: "flex-start" }}
               >
                 <Tag size="lg" variant="subtle" colorScheme="whiteAlpha">
                   <TagLeftIcon as={FaClock} />
@@ -210,14 +227,6 @@ export default function Home() {
                 </Tag>
               </Stack>
             </VStack>
-            <Box display={{ base: 'none', md: 'block' }}>
-              <Image
-                src="https://images.pexels.com/photos/430208/pexels-photo-430208.jpeg"
-                alt="CCTV AS 서비스"
-                borderRadius="xl"
-                shadow="2xl"
-              />
-            </Box>
           </SimpleGrid>
         </Container>
       </Box>
@@ -337,7 +346,7 @@ export default function Home() {
       {/* 설치 사례 섹션 */}
       <Container maxW="container.xl" py={16}>
         <VStack spacing={12}>
-          <Heading textAlign="center">최근 설치 사례</Heading>
+          <Heading textAlign="center">최근 A/S 사례</Heading>
           <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={8}>
             {SAMPLE_INSTALLATIONS.map((install, index) => (
               <Card key={index} overflow="hidden">

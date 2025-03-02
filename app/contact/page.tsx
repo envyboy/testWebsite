@@ -47,19 +47,13 @@ const CONTACT_INFO = [
   {
     icon: EmailIcon,
     title: "이메일 문의",
-    content: "seoncnc@gmail.com",
-    action: "mailto:seoncnc@gmail.com"
-  },
-  {
-    icon: TimeIcon,
-    title: "운영시간",
-    content: "평일 09:00 - 18:00",
-    subContent: "주말/공휴일 휴무"
+    content: "cctv.seoncnc@gmail.com",
+    action: "mailto:cctv.seoncnc@gmail.com"
   },
   {
     icon: FaMapMarkerAlt,
     title: "찾아오시는 길",
-    content: "서울특별시 강남구 테헤란로 123",
+    content: "경기도 고양시 덕양구 행신로 351-8",
     action: "https://maps.google.com"
   }
 ];
