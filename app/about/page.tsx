@@ -73,7 +73,7 @@ export default function About() {
           <VStack spacing={6} align="center" textAlign="center">
             <Heading size="2xl">
               최고의 보안 솔루션을 제공하는<br />
-              CCTV 보안관
+              우리동네 CCTV
             </Heading>
             <Text fontSize="xl" maxW="container.md">
               10년 이상의 전문성과 기술력으로 고객의 안전을 책임지는
