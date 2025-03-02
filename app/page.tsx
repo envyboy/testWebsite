@@ -46,24 +46,25 @@ const SAMPLE_PRODUCTS = [
 
 const SAMPLE_INSTALLATIONS = [
   {
-    title: "CCTV 긴급 출동 AS",
-    image: "https://images.unsplash.com/photo-1580983218628-b231f6b4fa5f",
-    location: "서울 강남구"
+    title: "래미안 아파트 CCTV AS",
+    image: "https://images.pexels.com/photos/1643456/pexels-photo-1643456.jpeg",
+    type: "아파트",
+    location: "서울 강남구",
+    description: "CCTV 화질 저하 및 영상 끊김 현상 해결"
   },
   {
-    title: "CCTV 정기 점검",
-    image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9",
-    location: "인천 송도"
+    title: "자이 아파트 긴급출동",
+    image: "https://images.pexels.com/photos/3205567/pexels-photo-3205567.jpeg",
+    type: "아파트",
+    location: "인천 송도",
+    description: "녹화기 장애 긴급 출동 처리"
   },
   {
-    title: "카메라 각도 조정",
-    image: "https://images.unsplash.com/photo-1557597883-aac6c4f06b09",
-    location: "부산 해운대"
-  },
-  {
-    title: "녹화기 장애 처리",
-    image: "https://images.unsplash.com/photo-1557597516-da75c0c6d3fb",
-    location: "대구 수성구"
+    title: "푸르지오 시티 AS",
+    image: "https://images.pexels.com/photos/430208/pexels-photo-430208.jpeg",
+    type: "오피스텔",
+    location: "부산 해운대",
+    description: "주차장 CCTV 사각지대 해소"
   }
 ];
 
@@ -347,23 +348,28 @@ export default function Home() {
       <Container maxW="container.xl" py={16}>
         <VStack spacing={12}>
           <Heading textAlign="center">최근 A/S 사례</Heading>
-          <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={8}>
+          <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={8}>
             {SAMPLE_INSTALLATIONS.map((install, index) => (
-              <Card key={index} overflow="hidden">
+              <Card key={index} overflow="hidden" variant="outline">
                 <Image
                   src={install.image}
                   alt={install.title}
-                  height="200px"
+                  height="240px"
                   objectFit="cover"
                 />
                 <CardBody>
-                  <VStack align="start" spacing={2}>
-                    <Heading size="md">{install.title}</Heading>
-                    <Text color="gray.500">{install.location}</Text>
-                    <HStack>
-                      <Icon as={CheckCircleIcon} color="green.500" />
-                      <Text fontSize="sm">설치 완료</Text>
+                  <VStack align="start" spacing={3}>
+                    <HStack spacing={2}>
+                      <Badge colorScheme="teal">아파트</Badge>
+                      <Icon as={FaBuilding} color="gray.500" />
                     </HStack>
+                    <Heading size="md">{install.title}</Heading>
+                    <Text fontWeight="bold" color="gray.700">
+                      {install.location}
+                    </Text>
+                    <Text fontSize="sm" color="gray.600">
+                      {install.description}
+                    </Text>
                   </VStack>
                 </CardBody>
               </Card>
