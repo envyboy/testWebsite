@@ -21,7 +21,7 @@ export const FloatingButtons = () => {
         size="lg"
         isRound
         colorScheme="teal"
-        onClick={() => window.location.href = 'tel:1688-8048'}
+        onClick={() => window.location.href = 'tel:01065062763'}
         boxShadow="lg"
         width="56px"
         height="56px"
@@ -34,7 +34,7 @@ export const FloatingButtons = () => {
         bg="#FEE500"
         color="black"
         _hover={{ bg: '#FEE500', transform: 'scale(1.1)' }}
-        onClick={() => window.open('https://pf.kakao.com/_xjAxbMG', '_blank')}
+        onClick={() => window.open('https://pf.kakao.com/_XQVnn', '_blank')}
         boxShadow="lg"
         width="56px"
         height="56px"

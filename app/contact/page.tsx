@@ -33,22 +33,22 @@ const CONTACT_INFO = [
   {
     icon: PhoneIcon,
     title: "전화 문의",
-    content: "1688-8048",
-    subContent: "010-6836-8048",
-    action: "tel:1688-8048"
+    content: "010-6506-2763",
+    subContent: "010-6506-2763",
+    action: "tel:010-6506-2763"
   },
   {
     icon: RiKakaoTalkFill,
     title: "카카오톡 상담",
     content: "카카오톡 채널",
     subContent: "실시간 상담",
-    action: "https://pf.kakao.com/_xjAxbMG" // 실제 카카오톡 채널 URL로 변경 필요
+    action: "https://pf.kakao.com/_XQVnn" // 실제 카카오톡 채널 URL로 변경 필요
   },
   {
     icon: EmailIcon,
     title: "이메일 문의",
-    content: "cctv.seoncnc@gmail.com",
-    action: "mailto:cctv.seoncnc@gmail.com"
+    content: "cctvpro11@naver.com",
+    action: "mailto:cctvpro11@naver.com"
   },
   {
     icon: FaMapMarkerAlt,

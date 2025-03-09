@@ -61,7 +61,7 @@ export const Logo = () => {
               color={textColor}
               letterSpacing="tight"
             >
-              CCTV 119
+              제이제이 시스템
             </Text>
             <Badge 
               colorScheme="yellow" 
