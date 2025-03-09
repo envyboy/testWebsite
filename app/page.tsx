@@ -191,7 +191,7 @@ export default function Home() {
                   variant="solid"
                   leftIcon={<PhoneIcon />}
                   w={{ base: "full", sm: "auto" }}
-                  onClick={() => window.location.href = 'tel:1688-8048'}
+                  onClick={() => window.location.href = 'tel:010-6506-2763'}
                 >
                   긴급 출동 요청
                 </Button>

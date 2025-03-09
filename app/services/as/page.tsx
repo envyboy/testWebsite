@@ -112,7 +112,7 @@ export default function ASService() {
               colorScheme="white"
               variant="outline"
               leftIcon={<PhoneIcon />}
-              onClick={() => window.location.href = 'tel:1688-8048'}
+              onClick={() => window.location.href = 'tel:010-6506-2763'}
               _hover={{ bg: 'whiteAlpha.200' }}
             >
               긴급 출동 요청
