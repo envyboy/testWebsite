@@ -47,21 +47,21 @@ const SAMPLE_PRODUCTS = [
 const SAMPLE_INSTALLATIONS = [
   {
     title: "래미안 아파트 CCTV AS",
-    image: "https://images.pexels.com/photos/1643456/pexels-photo-1643456.jpeg",
+    image: "/images/as/img1.jpeg",
     type: "아파트",
     location: "서울 강남구",
     description: "CCTV 화질 저하 및 영상 끊김 현상 해결"
   },
   {
     title: "자이 아파트 긴급출동",
-    image: "https://images.pexels.com/photos/3205567/pexels-photo-3205567.jpeg",
+    image: "/images/as/img2.jpeg",
     type: "아파트",
     location: "인천 송도",
     description: "녹화기 장애 긴급 출동 처리"
   },
   {
     title: "푸르지오 시티 AS",
-    image: "https://images.pexels.com/photos/430208/pexels-photo-430208.jpeg",
+    image: "/images/as/img3.jpeg",
     type: "오피스텔",
     location: "부산 해운대",
     description: "주차장 CCTV 사각지대 해소"

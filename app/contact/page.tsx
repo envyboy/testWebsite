@@ -107,6 +107,7 @@ export default function Contact() {
       });
 
       const data = await response.json();
+      console.log('API 응답:', data); // 디버깅용
 
       if (data.success) {
         toast({
@@ -119,13 +120,13 @@ export default function Contact() {
 
         setFormData({ name: '', phone: '', email: '', message: '' });
       } else {
-        throw new Error('SMS 발송 실패');
+        throw new Error(data.error?.message || 'SMS 발송 실패');
       }
     } catch (error) {
       console.error('에러:', error);
       toast({
         title: "접수 중 오류가 발생했습니다.",
-        description: "잠시 후 다시 시도해주세요.",
+        description: error instanceof Error ? error.message : "잠시 후 다시 시도해주세요.",
         status: "error",
         duration: 5000,
         isClosable: true,
