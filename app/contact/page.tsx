@@ -28,7 +28,6 @@ import { PhoneIcon, EmailIcon, TimeIcon, CheckIcon } from '@chakra-ui/icons';
 import { FaMapMarkerAlt, FaUser } from 'react-icons/fa';
 import { useState } from 'react';
 import { RiKakaoTalkFill } from 'react-icons/ri';
-import Coolsms from 'coolsms-node-sdk';
 
 const CONTACT_INFO = [
   {
@@ -66,12 +65,6 @@ interface FormData {
   message: string;
 }
 
-// CoolSMS 초기화
-const messageService = new Coolsms(
-  process.env.NEXT_PUBLIC_COOLSMS_API_KEY as string,
-  process.env.NEXT_PUBLIC_COOLSMS_API_SECRET as string
-);
-
 export default function Contact() {
   const [formData, setFormData] = useState<FormData>({
     name: '',
@@ -100,13 +93,18 @@ export default function Contact() {
     setIsSubmitting(true);
     
     try {
-      // SMS 발송
-      await messageService.sendOne({
-        to: formData.phone,
-        from: process.env.NEXT_PUBLIC_COOLSMS_SENDER_NUMBER as string,
-        text: `[제제이 시스템] ${formData.name}님의 문의가 접수되었습니다. 빠른 시일 내에 답변 드리겠습니다.`,
-        autoTypeDetect: true
+      const response = await fetch('/api/send-sms', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          phone: formData.phone,
+          name: formData.name
+        }),
       });
+
+      if (!response.ok) throw new Error('SMS 발송 실패');
 
       toast({
         title: "문의가 접수되었습니다.",
