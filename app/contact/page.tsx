@@ -28,6 +28,7 @@ import { PhoneIcon, EmailIcon, TimeIcon, CheckIcon } from '@chakra-ui/icons';
 import { FaMapMarkerAlt, FaUser } from 'react-icons/fa';
 import { useState } from 'react';
 import { RiKakaoTalkFill } from 'react-icons/ri';
+import Coolsms from 'coolsms-node-sdk';
 
 const CONTACT_INFO = [
   {
@@ -65,6 +66,12 @@ interface FormData {
   message: string;
 }
 
+// CoolSMS 초기화
+const messageService = new Coolsms(
+  process.env.NEXT_PUBLIC_COOLSMS_API_KEY as string,
+  process.env.NEXT_PUBLIC_COOLSMS_API_SECRET as string
+);
+
 export default function Contact() {
   const [formData, setFormData] = useState<FormData>({
     name: '',
@@ -91,18 +98,35 @@ export default function Contact() {
     if (!validateForm()) return;
 
     setIsSubmitting(true);
-    // 여기에 실제 폼 제출 로직 추가
-    await new Promise(resolve => setTimeout(resolve, 1000)); // 임시 지연
+    
+    try {
+      // SMS 발송
+      await messageService.sendOne({
+        to: formData.phone,
+        from: process.env.NEXT_PUBLIC_COOLSMS_SENDER_NUMBER as string,
+        text: `[제제이 시스템] ${formData.name}님의 문의가 접수되었습니다. 빠른 시일 내에 답변 드리겠습니다.`,
+        autoTypeDetect: true
+      });
 
-    toast({
-      title: "문의가 접수되었습니다.",
-      description: "빠른 시일 내에 답변 드리겠습니다.",
-      status: "success",
-      duration: 5000,
-      isClosable: true,
-    });
+      toast({
+        title: "문의가 접수되었습니다.",
+        description: "접수 확인 문자가 발송되었습니다.",
+        status: "success",
+        duration: 5000,
+        isClosable: true,
+      });
 
-    setFormData({ name: '', phone: '', email: '', message: '' });
+      setFormData({ name: '', phone: '', email: '', message: '' });
+    } catch (error) {
+      toast({
+        title: "접수 중 오류가 발생했습니다.",
+        description: "잠시 후 다시 시도해주세요.",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+      });
+    }
+
     setIsSubmitting(false);
   };
 
