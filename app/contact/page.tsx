@@ -100,7 +100,9 @@ export default function Contact() {
         },
         body: JSON.stringify({
           phone: formData.phone,
-          name: formData.name
+          name: formData.name,
+          email: formData.email,
+          message: formData.message
         }),
       });
 
