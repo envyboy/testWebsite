@@ -106,18 +106,23 @@ export default function Contact() {
         }),
       });
 
-      if (!response.ok) throw new Error('SMS 발송 실패');
+      const data = await response.json();
 
-      toast({
-        title: "문의가 접수되었습니다.",
-        description: "접수 확인 문자가 발송되었습니다.",
-        status: "success",
-        duration: 5000,
-        isClosable: true,
-      });
+      if (data.success) {
+        toast({
+          title: "문의가 접수되었습니다.",
+          description: "접수 확인 문자가 발송되었습니다.",
+          status: "success",
+          duration: 5000,
+          isClosable: true,
+        });
 
-      setFormData({ name: '', phone: '', email: '', message: '' });
+        setFormData({ name: '', phone: '', email: '', message: '' });
+      } else {
+        throw new Error('SMS 발송 실패');
+      }
     } catch (error) {
+      console.error('에러:', error);
       toast({
         title: "접수 중 오류가 발생했습니다.",
         description: "잠시 후 다시 시도해주세요.",

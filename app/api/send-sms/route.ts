@@ -8,6 +8,8 @@ const messageService = new Coolsms(
 export async function POST(request: Request) {
   const { phone, name, email, message } = await request.json();
   const adminPhone = process.env.ADMIN_PHONE_NUMBER as string;
+  
+  console.log('관리자 번호:', adminPhone); // 디버깅용
 
   try {
     // 사용자에게 발송
@@ -17,6 +19,10 @@ export async function POST(request: Request) {
       text: `[제이제이 시스템] ${name}님의 문의가 접수되었습니다. 빠른 시일 내에 답변 드리겠습니다.`,
       autoTypeDetect: true
     });
+
+    if (!adminPhone) {
+      throw new Error('관리자 전화번호가 설정되지 않았습니다.');
+    }
 
     // 관리자에게 발송
     await messageService.sendOne({
